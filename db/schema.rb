@@ -29,17 +29,6 @@ ActiveRecord::Schema.define(:version => 20140202165057) do
     t.integer "recipe_id"
   end
 
-  create_table "comments", :force => true do |t|
-    t.string   "title",            :limit => 50, :default => ""
-    t.string   "comment",                        :default => ""
-    t.datetime "created_at",                                     :null => false
-    t.integer  "commentable_id",                 :default => 0,  :null => false
-    t.string   "commentable_type", :limit => 15, :default => "", :null => false
-    t.integer  "user_id",                        :default => 0,  :null => false
-  end
-
-  add_index "comments", ["user_id"], :name => "fk_comments_user"
-
   create_table "ingredients", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -47,10 +36,15 @@ ActiveRecord::Schema.define(:version => 20140202165057) do
   end
 
   create_table "ingredients_recipes", :force => true do |t|
-    t.integer "ingredient_id"
-    t.integer "recipe_id"
-    t.string  "quantity"
+    t.integer  "ingredient_id"
+    t.integer  "recipe_id"
+    t.string   "quantity"
+    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",    :null => false
   end
+
+  add_index "ingredients_recipes", ["ingredient_id"], :name => "index_ingredients_recipes_on_ingredient_id"
+  add_index "ingredients_recipes", ["recipe_id"], :name => "index_ingredients_recipes_on_recipe_id"
 
   create_table "recipes", :force => true do |t|
     t.string   "name"
@@ -59,7 +53,6 @@ ActiveRecord::Schema.define(:version => 20140202165057) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "category_id"
-    t.string   "recipe_image"
   end
 
   create_table "taggings", :force => true do |t|

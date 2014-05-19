@@ -1,4 +1,4 @@
-class ChangeIngredientsRecipesToModelTable < ActiveRecord::Migration
+class ChangeIngredientsRecipesTable < ActiveRecord::Migration
   def up
     add_column :ingredients_recipes, :id, :primary_key
     

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.16'
+gem 'rails', '3.2.18'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,14 +9,14 @@ gem 'sqlite3'
 gem 'ransack'
 
 group :development, :test do
-        gem 'nifty-generators', '>= 0.4.0'
-        gem 'pry-rails'
-        gem 'pry-byebug'
-        gem 'pry-stack_explorer'
-        gem 'binding_of_caller'
-        gem 'better_errors'
-        gem 'acts-as-taggable-on', '~> 2.3.1'
-      end
+  gem 'nifty-generators', '>= 0.4.0'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'binding_of_caller'
+  gem 'better_errors'
+  gem 'acts-as-taggable-on', '~> 2.3.1'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
